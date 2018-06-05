@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+
+@using CoffeeIdentityLab26.Models;
+<h2>@ViewBag.ItemName.</h2>
+<h3>@ViewBag.Message</h3>
+<form action="~/Home/ItemListByItemName" method="get">
+    <label>
+        Search by Item Name:
+        <input type="text" name="ItemName" class="form-control" />
+    </label>
+    <input type="submit" value="Search by Item Name" class="btn btn-primary" />
+</form>
+<br />
+<form action="~/Home/ItemListByItemID" method="get">
+    <label>
+        Search by item id:
+        <select name="itemid">
+            @foreach (Item i in ViewBag.Items)
+            {
+                <option value="@i.ItemName">@i.ItemName</option>
+            }
+        </select>
+    </label>
+    <input type="submit" value="Search by Item" class="btn btn-primary" />
+</form>
+<table class="table table-bordered">
+    <tr>
+        <th><a href="~/Home/ItemListSorted?column=ItemID">ItemID</a></th>
+        <th><a href="~/Home/ItemListSorted?column=ItemName">Item Name</a></th>
+        <th><a href="~/Home/ItemListSorted?column=Description">Description</a></th>
+        <th><a href="~/Home/ItemListSorted?column=Price">Price</a></th>
+        <th>Action</th>
+    </tr>
+    @foreach (Item i in ViewBag.Items)
+    {
+        <tr>
+            <td>@i.ItemID</td>
+            <td>@i.ItemName</td>
+            <td>@i.Description</td>
+            <td>@i.Price</td>
+            <td>
+                <a href="~/Home/Add?ItemName=@i.ItemName"
+                   class="btn btn-primary">Add to Bag</a>
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,15 @@
+﻿@using CoffeeIdentityLab26.Models;
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Item Added</h2>
+
+Cart:
+<ul>
+    @foreach (Item b in (List<Item>)(Session["Cart"]))
+    {
+        <li>@b.ItemID   @b.ItemName</li>
+    }
+</ul>
+
