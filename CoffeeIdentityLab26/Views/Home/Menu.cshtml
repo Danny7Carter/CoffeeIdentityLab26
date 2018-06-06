@@ -8,26 +8,15 @@
 @using CoffeeIdentityLab26.Models;
 <h2>@ViewBag.ItemName.</h2>
 <h3>@ViewBag.Message</h3>
-<form action="~/Home/ItemListByItemName" method="get">
+@*<form action="~/Home/ItemListByItemName" method="get">
     <label>
         Search by Item Name:
         <input type="text" name="ItemName" class="form-control" />
     </label>
     <input type="submit" value="Search by Item Name" class="btn btn-primary" />
-</form>
+</form>*@
 <br />
-<form action="~/Home/ItemListByItemID" method="get">
-    <label>
-        Search by item id:
-        <select name="itemid">
-            @foreach (Item i in ViewBag.Items)
-            {
-                <option value="@i.ItemName">@i.ItemName</option>
-            }
-        </select>
-    </label>
-    <input type="submit" value="Search by Item" class="btn btn-primary" />
-</form>
+
 <table class="table table-bordered">
     <tr>
         <th><a href="~/Home/ItemListSorted?column=ItemID">ItemID</a></th>

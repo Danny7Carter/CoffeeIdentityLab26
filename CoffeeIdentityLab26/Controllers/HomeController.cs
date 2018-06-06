@@ -13,7 +13,7 @@ namespace CoffeeIdentityLab26.Controllers
         {
             return View();
         }
-        //[Authorize]
+        [Authorize]
         public ActionResult Menu(Item data)
         {
             CoffeeShopIdentityEntities ORM = new CoffeeShopIdentityEntities();
